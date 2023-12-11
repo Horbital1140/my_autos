@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{%block header %}
+{% include 'header.html' %}
+{%endblock header%}
+
+{%block banner %}
+{% include 'banner.html' %}
+{%endblock banner%}
+
+{%block content %}
+
+{% load static %}
+
+<div class="container product">
+  <h1 class="text-center bg-dark text-danger pt-2">All Products</h1>
+  <div class="row mt-5 mb-5">
+    {% for car in car_product %}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center inpix">  <!-- REMOVE THE <a href="/detail.html"> SO THAT THE INTERFACE WILL NOT BE TOO BOLD-->
+        <img src="{{car.car_photo.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">MODEL: {{car.model}}</h5>
+          <p class="card-text">PROMO-PRICE: {{car.promo_price}}</p>
+          <p class="card-text">REGISTERED: {{car.Register}}</p>
+          <p class="card-text">YEAR: {{car.year}}</p>
+          <p class="card-text">SEAT-NUMBER: {{car.seats}}</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+    {%endfor %}
+    </div>
+</div>  
+  {%endblock content%}
+
+
+  {%block footer %}
+{% include 'footer.html' %}
+{%endblock footer%}
+
